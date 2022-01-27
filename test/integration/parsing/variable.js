@@ -25,4 +25,19 @@ describe('.parse() variable', () => {
     expect(parser.parse('foo')).toMatchObject({error: null, result: 'bar'});
     expect(parser.parse('SUM(baz, 2.1, 0.2)')).toMatchObject({error: null, result: 8.899999999999999});
   });
+
+  it('should evaluate custom variables with .', () => {
+    expect(parser.parse('foo')).toMatchObject({error: '#NAME?', result: null});
+
+    parser.on('callVariable', function(name, done) {
+       if(name==='foo'){
+         return done('bar');
+       }else if(name==='baz.a'){
+         return done('6.6');
+       }
+    });
+
+    expect(parser.parse('foo')).toMatchObject({error: null, result: 'bar'});
+    expect(parser.parse('SUM(baz.a, 2.1, 0.2)')).toMatchObject({error: null, result: 8.899999999999999});
+  });
 });

@@ -161,6 +161,7 @@ describe('Parser', () => {
       expect(parser._callVariable('bar')).toBe('foo');
       expect(parser._callVariable('barrr')).toBe('baz');
     });
+
   });
 
   describe('._callFunction()', () => {

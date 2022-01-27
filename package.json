@@ -1,6 +1,6 @@
 {
   "name": "@synatic/hot-formula-parser",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Formula parser",
   "main": "./index",
   "module": "./index.mjs",

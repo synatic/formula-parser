@@ -14695,7 +14695,7 @@ case 1:
 break;
 case 2:
 
-      this.$ = yy.callVariable($$[$0][0]);
+      this.$ = yy.callVariable($$[$0].length>1?$$[$0].join('.'):$$[$0][0]);
 
 break;
 case 3:
